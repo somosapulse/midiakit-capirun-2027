@@ -4,8 +4,8 @@ Página estática para publicar em `https://midiakit.sportpulse.pro/capirun-2027
 
 ## Estrutura
 - `index.html` — a landpage com 11 dobras
-- `style.css` — identidade visual da CapiRun (amarelo `#fdb930`, marrom `#9f4a2a`, marrom escuro `#120b06`)
-- `script.js` — animações de entrada (reveal), ticker rolante e controle de movimento
+- `style.v2.css` — identidade visual da CapiRun (amarelo `#fdb930`, marrom `#9f4a2a`, marrom escuro `#120b06`)
+- `script.v3.js` — animações de entrada (reveal), ticker rolante e controle de movimento
 - `assets/logo.webp` — logo da CapiRun (substitua pelo definitivo, mantendo o nome)
 - `assets/favicon.png` e `assets/og-image.jpg` — derivados do logo
 
@@ -13,10 +13,6 @@ Página estática para publicar em `https://midiakit.sportpulse.pro/capirun-2027
 | Arquivo | Uso |
 |---|---|
 | `logo.webp` | Hero e rodapé |
-| `mascot-runner.webp` | Card do corredor competidor |
-| `mascot-female.webp` | Card do corredor família |
-| `mascots-running.webp` | Dobra 05 — quem corre com a gente |
-| `mascots-thumbs.webp` | Dobra 04 — festival pós-corrida |
 | `medal.jpg` | Dobra 06 — 175 anos |
 | `runners-jersey.jpg` | Dobra 01 — o evento + galeria |
 | `kids-jersey.jpg` | Galeria |
@@ -52,7 +48,7 @@ Fundo marrom escuro (`#120b06`) nas dobras 01, 02, 03, 06, 07, 08 e 09; amarelo 
 Nenhuma foto é cortada: todas usam `object-fit: contain` e nenhuma tem texto sobreposto.
 
 ## Movimento
-- Entrada escalonada elemento a elemento (146 alvos) em todas as dobras
+- Entrada escalonada elemento a elemento (134 alvos) em todas as dobras
 - Contador animado nos números da faixa do hero
 - Faixa rolante (ticker) na dobra 1
 - Flutuação suave nos mascotes e na medalha
