@@ -143,6 +143,8 @@ h1 em{display:inline-block;background:linear-gradient(100deg,#ffdf95 0%,#fdb930 
 .audience em{color:#8a3d20}
 .audience-grid{display:grid;grid-template-columns:1fr 1.13fr;gap:90px}
 .audience-heading>p{margin:24px 0;color:#7a6449;font-size:13px;line-height:1.8}
+.audience-art{position:relative;margin-top:30px}
+.audience .track-art{margin-top:0}
 .track-art{position:relative;height:210px;width:280px;overflow:hidden;margin-top:30px}
 .track-art i{position:absolute;width:230px;height:380px;border:1px solid #d9b978;border-radius:50%;top:10px;left:0;transform:rotate(-35deg)}
 .track-art i:nth-child(2){left:20px;top:20px}
@@ -360,10 +362,10 @@ body{overflow-x:clip}
 @media(max-width:760px){.journey-photo{margin-top:30px}.journey-photo img{height:210px}.journey-photo-cap{left:16px;bottom:14px;font-size:16px}}
 
 /* --- Publico: mascotes no lugar do track-art --- */
-.audience-art{position:relative;margin-top:30px;min-height:250px}
-.audience-art img{position:relative;z-index:2;width:min(100%,300px);height:auto;display:block;filter:drop-shadow(0 18px 34px #3a1c0a3d);animation:float 6s ease-in-out infinite}
-.audience .track-art{position:absolute;left:0;top:26px;margin-top:0;z-index:1}
-@media(max-width:760px){.audience-art{min-height:0}.audience-art img{width:min(74%,250px);margin:0 auto}.audience .track-art{display:none}}
+
+
+
+@media(max-width:760px){}
 
 /* --- Aniversario: medalha + selo 175 --- */
 .anniversary{position:relative}
@@ -438,7 +440,7 @@ footer{position:relative;overflow:hidden}
 footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--yellow),var(--brown),transparent);animation:sweep 7s linear infinite}
 
 @media(prefers-reduced-motion:reduce){
- .audience-art img,.anniversary-art img,.anniversary-badge,.hero-facts strong,.audience::after,footer::before{animation:none!important}
+ .anniversary-art img,.anniversary-badge,.hero-facts strong,.audience::after,footer::before{animation:none!important}
  .gal-item img,.event-photo img,.journey-photo img{transition:none}
 }
 
@@ -462,26 +464,24 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
 }
 
 /* --- Mascotes nos cards de corredor --- */
-.runner-type{position:relative;overflow:hidden;padding-top:26px}
-.runner-mascot{position:absolute;right:6px;bottom:-14px;width:min(42%,210px);height:auto;z-index:0;opacity:.92;filter:drop-shadow(0 16px 30px #00000059);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.runner-type:hover .runner-mascot{transform:translateY(-8px) rotate(-2deg)}
-.runner-type h3,.runner-type p,.runner-type .runner-index,.runner-type .runner-mark{position:relative;z-index:1}
-.runner-type h3,.runner-type p{max-width:72%}
+
+.runner-type:hover 
+
+
 @media(max-width:760px){
- .runner-type{min-height:270px;padding-top:22px}
- .runner-mascot{width:min(38%,150px);bottom:-8px}
+  
  .runner-type h3{font-size:26px;max-width:100%}
  .runner-type p{max-width:100%}
 }
 
 /* --- Dupla de mascotes no festival --- */
-.festival-duo{position:relative;margin-top:44px;display:flex;align-items:flex-end;justify-content:center;gap:26px}
-.festival-duo img{width:min(100%,420px);height:auto;filter:drop-shadow(0 22px 44px #00000073);animation:float 6.5s ease-in-out infinite}
-.festival-duo span{position:absolute;right:6%;bottom:12%;font-family:var(--display);font-size:clamp(26px,4vw,54px);font-style:italic;letter-spacing:.02em;color:var(--yellow);text-shadow:0 4px 24px #000b;transform:rotate(-7deg)}
+
+
+
 @media(max-width:760px){
- .festival-duo{margin-top:30px;gap:0}
- .festival-duo img{width:min(92%,330px)}
- .festival-duo span{right:2%;bottom:6%;font-size:26px}
+ 
+ 
+ 
 }
 
 /* ============================================================
@@ -622,8 +622,8 @@ body{background:#120b06}
 .runner-note{color:#5a3a18}
 .runner-note em{color:#9f4a2a}
 .runner .reveal{transition:opacity .8s ease,translate .8s cubic-bezier(.2,.7,.2,1)}
-.runner-mascot{filter:drop-shadow(0 16px 30px #1d0f0547)}
-.runner-type:hover .runner-mascot{transform:translateY(-8px) rotate(-2deg)}
+
+.runner-type:hover 
 
 /* --- Card Kids: mantido em amarelo (destaque) com texto escuro legivel --- */
 .kids{background:var(--yellow)!important;color:#1d0600!important;border-color:transparent}
@@ -650,3 +650,11 @@ footer{background:#0d0803}
   .gal-item img{width:100%;height:auto;max-height:none;object-fit:contain}
   .gal-item{width:100%}
 }
+
+/* --- Card Kids: amarelo solido (ultima regra, garante precedencia) --- */
+.modalities .modality.kids{background:var(--yellow);color:#1d0600;border-color:transparent}
+.modalities .modality.kids .card-index{color:#5a3a18}
+.modalities .modality.kids h3{color:#1d0600}
+.modalities .modality.kids h3 em{color:#9f4a2a}
+.modalities .modality.kids p{color:#5a3a18}
+.modalities .modality.kids .kids-star{color:#9f4a2a33}
