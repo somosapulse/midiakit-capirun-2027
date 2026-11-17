@@ -7,7 +7,8 @@ Página estática para publicar em `https://midiakit.sportpulse.pro/capirun-2027
 - `style.v2.css` — identidade visual da CapiRun (amarelo `#fdb930`, marrom `#9f4a2a`, marrom escuro `#120b06`)
 - `script.v3.js` — animações de entrada (reveal), ticker rolante e controle de movimento
 - `assets/logo.webp` — logo da CapiRun (substitua pelo definitivo, mantendo o nome)
-- `assets/favicon.png` e `assets/og-image.jpg` — derivados do logo
+- `assets/favicon.png` — ícone do site
+- `assets/og-image-v2.jpg` — imagem de compartilhamento (WhatsApp, Facebook, X) 1200×630
 
 ### Imagens
 | Arquivo | Uso |
