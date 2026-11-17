@@ -54,7 +54,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
     revealTargets().forEach(el => {
       // Elemento sem area (display:none no breakpoint atual) nao entra na animacao;
       // assim nao fica invisivel quando o viewport muda de tamanho.
@@ -104,6 +104,31 @@
   } else {
     counters.forEach(c => { c.textContent = c.dataset.count + (c.dataset.suffix || ''); });
   }
+
+  // --- Rede de seguranca: nada fica invisivel ---
+  // O observer pode nao disparar para elementos muito altos; o scroll revela
+  // qualquer pendente que ja entrou na tela.
+  let revealQueued = false;
+  function revealVisible() {
+    const limit = window.innerHeight * 0.94;
+    revealTargets().forEach(el => {
+      if (!el.classList.contains('pending')) return;
+      const r = el.getBoundingClientRect();
+      if (!r.height) return;
+      if (r.top < limit) {
+        el.classList.remove('pending');
+        el.classList.add('visible');
+      }
+    });
+    revealQueued = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!revealQueued) { revealQueued = true; requestAnimationFrame(revealVisible); }
+  }, { passive: true });
+  window.addEventListener('resize', () => {
+    if (!revealQueued) { revealQueued = true; requestAnimationFrame(revealVisible); }
+  });
+  revealVisible();
 
   // --- Barra de progresso ---
   let queued = false;
