@@ -60,6 +60,7 @@
       // assim nao fica invisivel quando o viewport muda de tamanho.
       if (!el.getBoundingClientRect().height) return;
       if (el.getBoundingClientRect().top > window.innerHeight) el.classList.add('pending');
+      else el.classList.add('visible'); // ja esta na tela: revela na hora
       observer.observe(el);
     });
   }
@@ -112,7 +113,7 @@
   function revealVisible() {
     const limit = window.innerHeight * 0.94;
     revealTargets().forEach(el => {
-      if (!el.classList.contains('pending')) return;
+      if (el.classList.contains('visible')) return;
       const r = el.getBoundingClientRect();
       if (!r.height) return;
       if (r.top < limit) {
